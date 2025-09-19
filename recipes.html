@@ -1,288 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipes – GreenBite</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-    // modal handling
-    function openModal(id){
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id){
-      document.getElementById(id).classList.add('hidden');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes – GreenBite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .recipe-card:hover .recipe-image {
+            transform: scale(1.05);
+        }
+        .recipe-image {
+            transition: transform 0.3s ease;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header -->
+    <header class="gradient-bg py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://sineth7077.github.io/greenbite-wellness-site/images/logo.png" alt="GreenBite" class="h-10 mr-3">
+                <span class="text-2xl font-bold text-green-700">GreenBite</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                <a href="recipes.html" class="text-green-600 font-medium">Recipes</a>
+                <a href="calculator.html" class="text-gray-700 hover:text-green-600 font-medium transition">Calculator</a>
+                <a href="workout.html" class="text-gray-700 hover:text-green-600 font-medium transition">Workout</a>
+                <a href="mindfulness.html" class="text-gray-700 hover:text-green-600 font-medium transition">Mindfulness</a>
+                <a href="contact.html" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
+            </nav>
+            <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition duration-300">
+                Join Now
+            </a>
+        </div>
+    </header>
 
-  <!-- Navbar -->
-  <nav class="navbar container">
-    <div class="nav-brand">
-      <img src="images/logo.png" alt="GreenBite logo">
-      <span class="brand-text">GreenBite</span>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="recipes.html" class="active">Recipes</a>
-      <a href="calculator.html">Calculator</a>
-      <a href="workout.html">Workout</a>
-      <a href="mindfulness.html">Mindfulness</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <a href="#" class="cta-nav">Join Now</a>
-  </nav>
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20 md:py-28">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight" data-aos="fade-up">
+                    <span class="relative inline-block">
+                        <span class="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 transform -skew-y-3"></span>
+                        <span class="relative text-white px-4 py-2">Chef-Curated</span>
+                    </span>
+                    <br class="md:hidden">Healthy Recipes<br>
+                    <span class="inline-block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-700 border-b-4 border-green-200 pb-2">Nutritious • Balanced • Flavorful</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto leading-normal" data-aos="fade-up" data-aos-delay="100">
+                    Expertly crafted meals designed by nutritionists and chefs to deliver optimal health benefits without sacrificing gourmet flavor. For those who expect both wellness and culinary excellence.
+                </p>
+                <div class="relative overflow-hidden rounded-lg shadow-lg max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://static.photos/food/1200x630/42" alt="Gourmet healthy food presentation" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent flex items-end p-8">
+                        <div class="text-white">
+                            <p class="text-sm uppercase tracking-wider mb-1">Featured Recipe</p>
+                            <h3 class="text-2xl font-bold">Mediterranean Salmon Bowl</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Hero -->
-  <section class="hero-split container">
-    <div class="hero-content">
-      <h1>6 Healthy Recipes That Are<br>Quick, Clean & Delicious</h1>
-      <p class="hero-sub">Simple meals that fuel you without slowing you down. Perfect for busy weeknights when you want something fresh and satisfying.</p>
-      <div class="hero-buttons">
-        <a href="#recipe-grid" class="cta-green">View Recipes</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="images/healthy-food.jpg" alt="Healthy food">
-    </div>
-  </section>
+    <!-- Real Food Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Real Food, Real Fast</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                    Healthy eating shouldn't be complicated. If your days are packed and you're craving meals that fuel you without slowing you down, you're in the right place. I've put together six of my favorite dishes that are quick to make, clean, and delicious.
+                </p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Quick Tips -->
-  <section class="container features-section">
-    <h2>Real Food, Real Fast</h2>
-    <p class="features-sub">Healthy eating shouldn't be complicated</p>
-    <p>If your days are packed and you're craving meals that fuel you without slowing you down, you're in the right place. I've put together six of my favorite dishes that are quick to make, clean, and delicious.</p>
-  </section>
+    <!-- Recipes Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">The Recipes</h2>
+            <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Each one ready in 30 minutes or less with simple, fresh ingredients
+            </p>
 
-  <!-- Recipe Grid -->
-  <section class="container" id="recipe-grid">
-    <h2 class="center">The Recipes</h2>
-    <p class="center small-muted">Each one ready in 30 minutes or less with simple, fresh ingredients</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Recipe 1 -->
+                <div class="recipe-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="overflow-hidden">
+                        <img src="https://sineth7077.github.io/greenbite-wellness-site/images/chicken-salad.jpg" alt="Grilled Lemon Herb Chicken Salad" class="recipe-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Grilled Lemon Herb Chicken Salad</h3>
+                        <p class="text-gray-600 mb-4">Juicy chicken with fresh greens and a zesty lemon dressing.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                            View Recipe <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
 
-    <div class="recipe-grid">
-      <!-- Recipe 1 -->
-      <div class="recipe-card" onclick="openModal('chicken-salad')">
-        <img src="images/chicken-salad.jpg" alt="Grilled Lemon Herb Chicken Salad">
-        <h4>Grilled Lemon Herb Chicken Salad</h4>
-      </div>
-      <!-- Recipe 2 -->
-      <div class="recipe-card" onclick="openModal('quinoa-bowl')">
-        <img src="images/quinoa-bowl.jpg" alt="Quinoa and Black Bean Bowl">
-        <h4>Quinoa and Black Bean Bowl</h4>
-      </div>
-      <!-- Recipe 3 -->
-      <div class="recipe-card" onclick="openModal('zoodle-stirfry')">
-        <img src="images/zoodle-stirfry.jpg" alt="Zucchini Noodle Stir-Fry">
-        <h4>Zucchini Noodle Stir-Fry</h4>
-      </div>
-      <!-- Recipe 4 -->
-      <div class="recipe-card" onclick="openModal('salmon-asparagus')">
-        <img src="images/salmon-asparagus.jpg" alt="Broiled Salmon with Garlic Asparagus">
-        <h4>Broiled Salmon with Garlic Asparagus</h4>
-      </div>
-      <!-- Recipe 5 -->
-      <div class="recipe-card" onclick="openModal('chickpea-wraps')">
-        <img src="images/chickpea-wraps.jpg" alt="Chickpea and Veggie Power Wraps">
-        <h4>Chickpea and Veggie Power Wraps</h4>
-      </div>
-      <!-- Recipe 6 -->
-      <div class="recipe-card" onclick="openModal('berry-parfait')">
-        <img src="images/berry-parfait.jpg" alt="Greek Yogurt Berry Parfait">
-        <h4>Greek Yogurt Berry Parfait</h4>
-      </div>
-    </div>
-  </section>
+                <!-- Recipe 2 -->
+                <div class="recipe-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden">
+                        <img src="https://sineth7077.github.io/greenbite-wellness-site/images/quinoa-bowl.jpg" alt="Quinoa and Black Bean Bowl" class="recipe-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Quinoa and Black Bean Bowl</h3>
+                        <p class="text-gray-600 mb-4">Protein-packed bowl with fresh veggies and avocado.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                            View Recipe <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- Kitchen Essentials -->
-  <section class="container features-section">
-    <h2>Kitchen Essentials</h2>
-    <p class="features-sub">Tools & Ingredients for Success</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Must-Have Kitchen Tools</h3>
-        <ul>
-          <li>Nonstick skillet or cast iron pan</li>
-          <li>Sharp chef's knife</li>
-          <li>Cutting boards</li>
-          <li>Blender or food processor</li>
-          <li>Sheet pan for roasting</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <h3>Clean Eating Staples</h3>
-        <ul>
-          <li>Fresh leafy greens & veggies</li>
-          <li>Lean proteins (chicken, fish, tofu)</li>
-          <li>Whole grains like quinoa</li>
-          <li>Eggs & healthy fats</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <h3>Pro Tips for Busy Cooks</h3>
-        <ul>
-          <li>Pre-chop veggies</li>
-          <li>Store healthy foods at eye level</li>
-          <li>Limit processed snacks</li>
-          <li>Keep frozen grains & veggies</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+                <!-- Recipe 3 -->
+                <div class="recipe-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden">
+                        <img src="https://sineth7077.github.io/greenbite-wellness-site/images/zoodle-stirfry.jpg" alt="Zucchini Noodle Stir-Fry" class="recipe-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Zucchini Noodle Stir-Fry</h3>
+                        <p class="text-gray-600 mb-4">Light and flavorful veggie-packed stir-fry.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                            View Recipe <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- Recipe Modals -->
-  <!-- Chicken Salad -->
-  <div id="chicken-salad" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeModal('chicken-salad')">✕</button>
-      <h2>Grilled Lemon Herb Chicken Salad</h2>
-      <p><strong>20 mins • 2 servings</strong></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>2 boneless skinless chicken breasts</li>
-        <li>2 tbsp olive oil</li>
-        <li>1 lemon (zested & juiced)</li>
-        <li>2 garlic cloves, minced</li>
-        <li>1 tsp oregano</li>
-        <li>1 tsp thyme</li>
-        <li>6 cups salad greens</li>
-        <li>1 cup cherry tomatoes</li>
-        <li>1 cucumber, sliced</li>
-        <li>1/4 cup feta (optional)</li>
-      </ul>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Mix marinade ingredients & coat chicken.</li>
-        <li>Grill chicken 6–7 mins per side.</li>
-        <li>Assemble salad with greens & veggies.</li>
-        <li>Slice chicken & place on salad.</li>
-        <li>Top with feta, serve with lemon wedges.</li>
-      </ol>
-    </div>
-  </div>
+                <!-- Recipe 4 -->
+                <div class="recipe-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="overflow-hidden">
+                        <img src="https://sineth7077.github.io/greenbite-wellness-site/images/salmon-asparagus.jpg" alt="Broiled Salmon with Garlic Asparagus" class="recipe-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Broiled Salmon with Garlic Asparagus</h3>
+                        <p class="text-gray-600 mb-4">Omega-3 rich salmon with perfectly roasted asparagus.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                            View Recipe <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- Quinoa Bowl -->
-  <div id="quinoa-bowl" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeModal('quinoa-bowl')">✕</button>
-      <h2>Quinoa and Black Bean Bowl</h2>
-      <p><strong>25 mins • 4 servings</strong></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>1 cup quinoa</li>
-        <li>1 can black beans, rinsed</li>
-        <li>1 cup corn</li>
-        <li>1 red bell pepper</li>
-        <li>1/2 cup salsa</li>
-        <li>1 tsp cumin</li>
-      </ul>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Cook quinoa per package directions.</li>
-        <li>Mix quinoa, beans, corn, pepper, salsa, and cumin.</li>
-        <li>Serve warm or cold, garnish with cilantro.</li>
-      </ol>
-    </div>
-  </div>
+                <!-- Recipe 5 -->
+                <div class="recipe-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden">
+                        <img src="https://sineth7077.github.io/greenbite-wellness-site/images/chickpea-wraps.jpg" alt="Chickpea and Veggie Power Wraps" class="recipe-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Chickpea and Veggie Power Wraps</h3>
+                        <p class="text-gray-600 mb-4">Fiber-rich wraps perfect for lunch on the go.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                            View Recipe <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- Zoodle Stir Fry -->
-  <div id="zoodle-stirfry" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeModal('zoodle-stirfry')">✕</button>
-      <h2>Zucchini Noodle Stir-Fry</h2>
-      <p><strong>15 mins • 2 servings</strong></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>2 zucchinis, spiralized</li>
-        <li>1 cup broccoli florets</li>
-        <li>1 carrot, sliced</li>
-        <li>2 tbsp soy sauce</li>
-        <li>1 tsp sesame oil</li>
-      </ul>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Sauté veggies until tender.</li>
-        <li>Add zoodles, soy sauce, sesame oil.</li>
-        <li>Toss & cook 2–3 mins, serve hot.</li>
-      </ol>
-    </div>
-  </div>
+                <!-- Recipe 6 -->
+                <div class="recipe-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden">
+                        <img src="https://sineth7077.github.io/greenbite-wellness-site/images/berry-parfait.jpg" alt="Greek Yogurt Berry Parfait" class="recipe-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Greek Yogurt Berry Parfait</h3>
+                        <p class="text-gray-600 mb-4">Creamy yogurt layered with fresh berries and granola.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                            View Recipe <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Salmon Asparagus -->
-  <div id="salmon-asparagus" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeModal('salmon-asparagus')">✕</button>
-      <h2>Broiled Salmon with Garlic Asparagus</h2>
-      <p><strong>15 mins • 2 servings</strong></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>2 salmon fillets</li>
-        <li>1 bunch asparagus</li>
-        <li>2 tbsp olive oil</li>
-        <li>2 garlic cloves, minced</li>
-        <li>1 lemon wedge</li>
-      </ul>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Preheat broiler, line sheet pan.</li>
-        <li>Toss asparagus with olive oil & garlic.</li>
-        <li>Place salmon & asparagus on pan.</li>
-        <li>Broil 8–10 mins until salmon is flaky.</li>
-        <li>Squeeze lemon over top & serve.</li>
-      </ol>
-    </div>
-  </div>
+    <!-- Kitchen Essentials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Kitchen Essentials</h2>
+            <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Tools & Ingredients for Success
+            </p>
 
-  <!-- Chickpea Wraps -->
-  <div id="chickpea-wraps" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeModal('chickpea-wraps')">✕</button>
-      <h2>Chickpea and Veggie Power Wraps</h2>
-      <p><strong>10 mins • 4 servings</strong></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>1 can chickpeas, mashed</li>
-        <li>1 cup shredded carrots</li>
-        <li>1/2 cup cucumber slices</li>
-        <li>Whole wheat wraps</li>
-        <li>2 tbsp hummus</li>
-      </ul>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Spread hummus on wraps.</li>
-        <li>Add mashed chickpeas & veggies.</li>
-        <li>Roll tightly, slice in half & serve.</li>
-      </ol>
-    </div>
-  </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Must-Have Tools -->
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i data-feather="tool" class="text-green-600 w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Must-Have Kitchen Tools</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Nonstick skillet or cast iron pan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Sharp chef's knife</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Cutting boards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Blender or food processor</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Sheet pan for roasting</span>
+                        </li>
+                    </ul>
+                </div>
 
-  <!-- Berry Parfait -->
-  <div id="berry-parfait" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeModal('berry-parfait')">✕</button>
-      <h2>Greek Yogurt Berry Parfait</h2>
-      <p><strong>5 mins • 1 serving</strong></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>1 cup Greek yogurt</li>
-        <li>1/2 cup fresh berries</li>
-        <li>1 tbsp granola</li>
-        <li>1 tsp honey</li>
-      </ul>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Layer yogurt, berries, and granola.</li>
-        <li>Drizzle with honey & serve immediately.</li>
-      </ol>
-    </div>
-  </div>
+                <!-- Clean Eating Staples -->
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i data-feather="shopping-bag" class="text-green-600 w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Clean Eating Staples</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Fresh leafy greens & veggies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Lean proteins (chicken, fish, tofu)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Whole grains like quinoa</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Eggs & healthy fats</span>
+                        </li>
+                    </ul>
+                </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>© 2025 GreenBite. All rights reserved.</p>
-    </div>
-  </footer>
+                <!-- Pro Tips -->
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i data-feather="lightbulb" class="text-green-600 w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Pro Tips for Busy Cooks</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Pre-chop veggies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Store healthy foods at eye level</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Limit processed snacks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-3 mt-1 w-4 h-4"></i>
+                            <span>Keep frozen grains & veggies</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <img src="https://sineth7077.github.io/greenbite-wellness-site/images/logo.png" alt="GreenBite" class="h-10 mr-3">
+                    <span class="text-2xl font-bold text-white">GreenBite</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-green-400 transition duration-300">
+                        <i data-feather="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="hover:text-green-400 transition duration-300">
+                        <i data-feather="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="hover:text-green-400 transition duration-300">
+                        <i data-feather="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="hover:text-green-400 transition duration-300">
+                        <i data-feather="youtube" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center md:text-left">
+                <p class="text-gray-400">© 2025 GreenBite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+    </script>
 </body>
 </html>
