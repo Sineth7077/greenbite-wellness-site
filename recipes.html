@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <base href="/greenbite/">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Recipes — GreenBite</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="navbar container">
+  <div class="nav-brand">
+    <img src="images/logo.png" alt="GreenBite logo">
+    <div class="brand-text">GreenBite</div>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="workout.html">Workout</a>
+    <a href="mindfulness.html">Mindfulness</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a class="cta-nav" href="#join">Join Now</a>
+</header>
+
+<main class="container">
+  <section class="recipes-hero">
+    <h1 style="font-family:'Playfair Display',serif;font-size:2.4rem">Healthy Recipes</h1>
+    <p class="small-muted">Wholesome, balanced, and delicious meals made simple.</p>
+  </section>
+
+  <div style="margin-top:18px">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <input id="r-search" placeholder="Search recipes" style="padding:10px;border-radius:8px;border:1px solid #eee">
+      <select id="r-cat" style="padding:10px;border-radius:8px;border:1px solid #eee">
+        <option value="">All</option>
+        <option value="Balanced">Balanced</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Snacks">Snacks</option>
+      </select>
+    </div>
+
+    <div class="recipe-grid" id="recipe-grid">
+      <!-- cards inserted by JS -->
+    </div>
+  </div>
+</main>
+
+<!-- modal -->
+<div id="recipe-modal" class="modal hidden" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="close" onclick="closeRecipeModal()">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div><strong>GreenBite</strong></div>
+    <div><a href="index.html">Home</a> <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="js/recipes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

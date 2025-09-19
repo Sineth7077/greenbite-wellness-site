@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head>
+    <base href="/greenbite/"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mindfulness — GreenBite</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header class="navbar container">
+  <div class="nav-brand">
+    <img src="images/logo.png" alt="GreenBite logo">
+    <div class="brand-text">GreenBite</div>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="workout.html">Workout</a>
+    <a href="mindfulness.html">Mindfulness</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a class="cta-nav" href="#join">Join Now</a>
+</header>
+
+<main class="container">
+  <section style="padding:18px 0">
+    <h1 class="center" style="font-family:'Playfair Display',serif'>Mindfulness</h1>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+      <div style="flex:1;min-width:260px">
+        <div class="breath-box"><div id="breath" class="breath-circle"></div></div>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:10px">
+          <button id="start-breath" class="cta-green">Start</button>
+          <button id="stop-breath" class="cta-outline">Stop</button>
+        </div>
+      </div>
+      <div style="flex:1;min-width:260px">
+        <h3 class="center">Session Timer</h3>
+        <div id="mind-timer" style="font-size:28px;text-align:center">00:00</div>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:10px">
+          <input id="mind-min" type="number" value="5" style="width:90px;padding:8px;border-radius:8px">
+          <button id="start-mind" class="cta-green">Start</button>
+          <button id="stop-mind" class="cta-outline">Stop</button>
+        </div>
+        <div style="margin-top:10px" class="center small-muted">Completed sessions: <strong id="mind-count">0</strong></div>
+        <div style="margin-top:8px" class="center"><label><input id="ambient-toggle" type="checkbox"> Play ambient sound</label></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container footer-content"><div><strong>GreenBite</strong></div></div></footer>
+<script src="js/mindfulness.js"></script><script src="js/app.js"></script>
+</body></html>
